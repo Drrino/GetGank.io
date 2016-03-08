@@ -52,7 +52,7 @@ public class MenuFragment extends Fragment {
             GankFragment.class));
     mAdapter.menuItems.add(
         new MenuItem("Picture", R.mipmap.picture, MenuItem.FragmentType.Girl,
-            GankFragment.class));
+            GirlPictureFragment.class));
     mAdapter.menuItems.add(
         new MenuItem("Android", R.mipmap.android, MenuItem.FragmentType.Android,
             GankFragment.class));

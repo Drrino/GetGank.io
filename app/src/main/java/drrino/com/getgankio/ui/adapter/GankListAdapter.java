@@ -20,7 +20,6 @@ import drrino.com.getgankio.core.GankCategory;
 import drrino.com.getgankio.data.entity.Gank;
 import drrino.com.getgankio.ui.util.DateUtils;
 import drrino.com.getgankio.ui.util.StringStyleUtils;
-import drrino.com.getgankio.ui.view.IClickItem;
 import drrino.com.getgankio.ui.weight.RatioImageView;
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,7 +28,7 @@ import java.util.List;
 /**
  * Created by Administrator on 16/03/03.
  */
-public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHolderItem> {
+public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.ViewHolderItem> {
   private List<Gank> mGankList;
   private Context mContext;
 
@@ -37,7 +36,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
   //blur girl
   private static ColorFilter mColorFilter;
 
-  public MainListAdapter(Context context) {
+  public GankListAdapter(Context context) {
     mContext = context;
     mGankList = new ArrayList<>();
     mGankList.add(getGankGirls());
@@ -49,6 +48,18 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
 
   public void setIClickItem(IClickItem IClickItem) {
     mIClickItem = IClickItem;
+  }
+
+  public interface IClickItem {
+    /**
+     * click item of gank girls info
+     */
+    void onClickGankItemGirl(Gank gank, View viewImage, View viewText);
+
+    /**
+     * click gank normal info
+     */
+    void onClickGankItemNormal(Gank gank, View view);
   }
 
   private enum EItemType {
@@ -173,7 +184,7 @@ public class MainListAdapter extends RecyclerView.Adapter<MainListAdapter.ViewHo
 
   static class ViewHolderItemGirl extends ViewHolderItem {
     @Bind(R.id.tv_video_name) TextView mTvTime;
-    @Bind(R.id.iv_index_photo) RatioImageView mImageView;
+    @Bind(R.id.iv_girl_picture) RatioImageView mImageView;
 
     public ViewHolderItemGirl(View itemView) {
       super(itemView);

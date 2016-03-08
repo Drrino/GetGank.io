@@ -19,9 +19,8 @@ import drrino.com.getgankio.core.GankFactory;
 import drrino.com.getgankio.data.GankData;
 import drrino.com.getgankio.data.entity.Gank;
 import drrino.com.getgankio.ui.activity.GirlPictureActivity;
-import drrino.com.getgankio.ui.adapter.MainListAdapter;
+import drrino.com.getgankio.ui.adapter.GankListAdapter;
 import drrino.com.getgankio.ui.util.DateUtils;
-import drrino.com.getgankio.ui.view.IClickItem;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -32,7 +31,7 @@ import rx.android.schedulers.AndroidSchedulers;
 /**
  * Created by Administrator on 16/03/03.
  */
-public class GankFragment extends Fragment implements IClickItem {
+public class GankFragment extends Fragment implements GankListAdapter.IClickItem {
   @Bind(R.id.rv_gank) RecyclerView mRecyclerView;
   @Bind(R.id.swipe_refresh_layout) SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -43,7 +42,7 @@ public class GankFragment extends Fragment implements IClickItem {
   private boolean mHasMoreData = true;
 
   private static final GankApi mGankApi = GankFactory.getGankApiInstance();
-  private MainListAdapter mAdapter;
+  private GankListAdapter mAdapter;
   private Date mCurrentDate;
   List<Gank> mGankList = new ArrayList<>();
 
@@ -61,7 +60,7 @@ public class GankFragment extends Fragment implements IClickItem {
     setupRecyclerView();
     setupSwipeRefreshLayout();
 
-    new Handler().postDelayed(() -> showRefresh(), 1000);
+    new Handler().postDelayed(this::showRefresh, 1000);
     getData();
   }
 
@@ -116,7 +115,7 @@ public class GankFragment extends Fragment implements IClickItem {
   private void setupRecyclerView() {
     LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
     mRecyclerView.setLayoutManager(linearLayoutManager);
-    mAdapter = new MainListAdapter(getContext());
+    mAdapter = new GankListAdapter(getContext());
     mAdapter.setIClickItem(this);
     mRecyclerView.setAdapter(mAdapter);
 

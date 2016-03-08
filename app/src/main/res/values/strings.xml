@@ -2,8 +2,13 @@
   <string name="app_name">GetGank.io</string>
   <string name="action_settings">Settings</string>
 
-  <string name="no_more_gank">没有干货</string>
   <string name="return_top">返回顶部</string>
 
   <string name="save">保存</string>
+  <string name="no_more_gank">没有更多干货啦</string>
+
+  <string name="empty_data_of_girls">妹子还没有准备好</string>
+
+  <string name="no_more_girls">妹子见底了，没有更多啦。</string>
+  <string name="action_to_top">返回顶部</string>
 </resources>
