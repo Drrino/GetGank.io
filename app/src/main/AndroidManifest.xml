@@ -25,6 +25,7 @@
       </intent-filter>
     </activity>
     <activity android:name=".ui.activity.GirlPictureActivity"/>
+    <activity android:name=".ui.activity.WebActivity"/>
   </application>
 
 </manifest>

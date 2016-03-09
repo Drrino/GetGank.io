@@ -11,4 +11,9 @@
 
   <string name="no_more_girls">妹子见底了，没有更多啦。</string>
   <string name="action_to_top">返回顶部</string>
+
+  <string name="action_copy_url">复制链接</string>
+  <string name="action_open_url">从浏览器打开链接</string>
+  <string name="toast_copy_done">复制成功</string>
+  <string name="toast_open_fail">打开链接失败</string>
 </resources>

@@ -16,8 +16,11 @@ import butterknife.ButterKnife;
 import drrino.com.getgankio.R;
 import drrino.com.getgankio.core.GankApi;
 import drrino.com.getgankio.core.GankFactory;
+import drrino.com.getgankio.data.entity.Gank;
 import drrino.com.getgankio.data.entity.Girl;
+import drrino.com.getgankio.ui.activity.GirlPictureActivity;
 import drrino.com.getgankio.ui.adapter.GirlPictureAdapter;
+import drrino.com.getgankio.ui.util.DateUtils;
 import java.util.List;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -98,6 +101,7 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
             appendMoreDataToView(girls);
             mCurrentPage++;
           }
+          getDataFinish();
         });
   }
 
@@ -138,7 +142,7 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
   }
 
   private void getDataFinish() {
-    new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 1000);
+    new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 2000);
   }
 
   private void fillData(List<Girl> girls) {
@@ -146,7 +150,7 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
   }
 
   private void showEmptyView() {
-    Snackbar.make(mRecyclerGirl, R.string.empty_data_of_girls,Snackbar.LENGTH_SHORT).show();
+    Snackbar.make(mRecyclerGirl, R.string.empty_data_of_girls, Snackbar.LENGTH_SHORT).show();
   }
 
   private void setupSwipeRefreshLayout() {
@@ -173,22 +177,22 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
   }
 
   private boolean prepareRefresh() {
-    if(shouldRefillGirls()){
+    if (shouldRefillGirls()) {
       resetCurrentPage();
-      if(!mSwipeRefreshLayout.isRefreshing()){
+      if (!mSwipeRefreshLayout.isRefreshing()) {
         showRefresh();
       }
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
   private boolean shouldRefillGirls() {
-    return mCurrentPage<=2;
+    return mCurrentPage <= 2;
   }
 
-  public void resetCurrentPage(){
+  public void resetCurrentPage() {
     mCurrentPage = 1;
   }
 
@@ -202,6 +206,14 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
   }
 
   @Override public void onClickPhoto(int position, View view, View textView) {
-
+    Girl girlDetail = mAdapter.getGirl(position);
+    if (girlDetail != null) {
+      Gank gank = new Gank();
+      gank.type = girlDetail.type;
+      gank.url = girlDetail.url;
+      gank.publishedAt = girlDetail.publishedAt;
+      GirlPictureActivity.gotoGirlDetail(getActivity(), gank.url,
+          DateUtils.toDate(gank.publishedAt), view, textView);
+    }
   }
 }

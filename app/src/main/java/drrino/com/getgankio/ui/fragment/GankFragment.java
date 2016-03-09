@@ -19,6 +19,7 @@ import drrino.com.getgankio.core.GankFactory;
 import drrino.com.getgankio.data.GankData;
 import drrino.com.getgankio.data.entity.Gank;
 import drrino.com.getgankio.ui.activity.GirlPictureActivity;
+import drrino.com.getgankio.ui.activity.WebActivity;
 import drrino.com.getgankio.ui.adapter.GankListAdapter;
 import drrino.com.getgankio.ui.util.DateUtils;
 import java.util.ArrayList;
@@ -101,7 +102,7 @@ public class GankFragment extends Fragment implements GankListAdapter.IClickItem
   }
 
   private void getDataFinish() {
-    new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 1000);
+    new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 2000);
   }
 
   private void fillData(List<Gank> data) {
@@ -239,6 +240,6 @@ public class GankFragment extends Fragment implements GankListAdapter.IClickItem
   }
 
   @Override public void onClickGankItemNormal(Gank gank, View view) {
-
+    WebActivity.gotoWebActivity(getActivity(), gank.url, gank.desc);
   }
 }

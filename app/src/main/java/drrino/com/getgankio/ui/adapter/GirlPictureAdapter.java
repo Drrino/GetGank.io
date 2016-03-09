@@ -102,7 +102,7 @@ public class GirlPictureAdapter extends RecyclerView.Adapter<GirlPictureAdapter.
     public ViewHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this, itemView);
-      mIvGirlPicture.setOriginalSize(50, 70);
+      mIvGirlPicture.setOriginalSize(50, 75);
     }
   }
 }
