@@ -4,13 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import drrino.com.getgankio.R;
@@ -26,15 +22,17 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
 
 /**
  * Created by Administrator on 16/03/03.
  */
-public class GankFragment extends Fragment implements GankListAdapter.IClickItem {
+public class GankFragment extends BaseSwipeFragment implements GankListAdapter.IClickItem {
   @Bind(R.id.rv_gank) RecyclerView mRecyclerView;
-  @Bind(R.id.swipe_refresh_layout) SwipeRefreshLayout mSwipeRefreshLayout;
 
   private static final int DAY_OF_MILLISECOND = 24 * 60 * 60 * 1000;
   private int mCountOfGetMoreDataEmpty = 0;
@@ -47,21 +45,14 @@ public class GankFragment extends Fragment implements GankListAdapter.IClickItem
   private Date mCurrentDate;
   List<Gank> mGankList = new ArrayList<>();
 
-  @Nullable @Override
-  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.fragment_gank, container, false);
-    ButterKnife.bind(this, view);
-    return view;
+  @Override protected int getLayoutId() {
+    return R.layout.fragment_gank;
   }
 
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
     setupRecyclerView();
-    setupSwipeRefreshLayout();
-
-    new Handler().postDelayed(this::showRefresh, 1000);
     getData();
   }
 
@@ -103,6 +94,7 @@ public class GankFragment extends Fragment implements GankListAdapter.IClickItem
 
   private void getDataFinish() {
     new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 2000);
+    //mSwipeRefreshLayout.setRefreshing(false);
   }
 
   private void fillData(List<Gank> data) {
@@ -198,30 +190,11 @@ public class GankFragment extends Fragment implements GankListAdapter.IClickItem
     return mGankList;
   }
 
-  private void setupSwipeRefreshLayout() {
-    mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark);
-    mSwipeRefreshLayout.setOnRefreshListener(() -> {
-      if (prepareRefresh()) {
-        onRefreshStarted();
-      } else {
-        hideRefresh();
-      }
-    });
-  }
-
-  private void hideRefresh() {
-    mSwipeRefreshLayout.postDelayed(() -> {
-      if (mSwipeRefreshLayout != null) {
-        mSwipeRefreshLayout.setRefreshing(false);
-      }
-    }, 1000);
-  }
-
-  private void onRefreshStarted() {
+  @Override protected void onRefreshStarted() {
     getData();
   }
 
-  private boolean prepareRefresh() {
+  @Override protected boolean prepareRefresh() {
     return shouldRefillData();
   }
 

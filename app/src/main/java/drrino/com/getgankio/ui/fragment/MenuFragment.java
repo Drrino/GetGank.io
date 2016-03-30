@@ -13,15 +13,12 @@ import butterknife.ButterKnife;
 import drrino.com.getgankio.R;
 import drrino.com.getgankio.model.MenuItem;
 import drrino.com.getgankio.ui.adapter.MenuAdapter;
-import drrino.com.getgankio.ui.view.IMainView;
 
 /**
  * Created by Administrator on 16/03/03.
  */
 public class MenuFragment extends Fragment {
   @Bind(R.id.recycler_view) RecyclerView mRecyclerView;
-
-  private MenuAdapter mAdapter;
 
   @Nullable @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -40,7 +37,7 @@ public class MenuFragment extends Fragment {
 
   @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    mAdapter = new MenuAdapter(getActivity());
+    MenuAdapter mAdapter = new MenuAdapter(getActivity());
     addAllMenuItems(mAdapter);
     mRecyclerView.setAdapter(mAdapter);
   }
@@ -48,17 +45,13 @@ public class MenuFragment extends Fragment {
   private void addAllMenuItems(MenuAdapter mAdapter) {
     mAdapter.menuItems.clear();
     mAdapter.menuItems.add(
-        new MenuItem("Gank", R.mipmap.home, MenuItem.FragmentType.Gank,
-            GankFragment.class));
+        new MenuItem("Gank", R.mipmap.home, MenuItem.FragmentType.Gank, GankFragment.class));
+    mAdapter.menuItems.add(new MenuItem("Picture", R.mipmap.picture, MenuItem.FragmentType.Girl,
+        GirlPictureFragment.class));
+    mAdapter.menuItems.add(new MenuItem("Android", R.mipmap.android, MenuItem.FragmentType.Android,
+        AndroidFragment.class));
     mAdapter.menuItems.add(
-        new MenuItem("Picture", R.mipmap.picture, MenuItem.FragmentType.Girl,
-            GirlPictureFragment.class));
-    mAdapter.menuItems.add(
-        new MenuItem("Android", R.mipmap.android, MenuItem.FragmentType.Android,
-            GankFragment.class));
-    mAdapter.menuItems.add(
-        new MenuItem("IOS", R.mipmap.ios, MenuItem.FragmentType.IOS,
-            GankFragment.class));
+        new MenuItem("IOS", R.mipmap.ios, MenuItem.FragmentType.IOS, GankFragment.class));
   }
 
   @Override public void onDestroyView() {

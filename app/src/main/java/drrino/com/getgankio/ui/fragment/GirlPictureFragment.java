@@ -4,13 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import drrino.com.getgankio.R;
@@ -22,19 +18,19 @@ import drrino.com.getgankio.ui.activity.GirlPictureActivity;
 import drrino.com.getgankio.ui.adapter.GirlPictureAdapter;
 import drrino.com.getgankio.ui.util.DateUtils;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by Coder on 16/3/8.
  */
-public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.IClickItem {
+public class GirlPictureFragment extends BaseSwipeFragment
+    implements GirlPictureAdapter.IClickItem {
 
   @Bind(R.id.recycler_girl) RecyclerView mRecyclerGirl;
-  @Bind(R.id.swipe_refresh_layout) SwipeRefreshLayout mSwipeRefreshLayout;
 
   private GirlPictureAdapter mAdapter;
-  private boolean hasLoadMoreData = false;
   private boolean mHasMoreData = true;
   private int mCurrentPage = 1;
 
@@ -45,21 +41,15 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
 
   private static final GankApi mGankApi = GankFactory.getGankApiInstance();
 
-  @Nullable @Override
-  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
-      @Nullable Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.list_girl_picture, container, false);
-    ButterKnife.bind(this, view);
-    return view;
+  @Override protected int getLayoutId() {
+    return R.layout.list_girl_picture;
   }
 
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
     initRecyclerView();
-    setupSwipeRefreshLayout();
 
-    new Handler().postDelayed(() -> showRefresh(), 1000);
     getGirlsData();
   }
 
@@ -88,7 +78,7 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
   private void getDataMore() {
     mGankApi.getGirlData(PAGE_SIZE, mCurrentPage)
         .map(girlData -> girlData.results)
-        .flatMap(girls -> Observable.from(girls))
+        .flatMap(Observable::from)
         .toSortedList((girl, girl2) -> girl2.publishedAt.compareTo(girl.publishedAt))
         .observeOn(AndroidSchedulers.mainThread())
         .subscribe(girls -> {
@@ -143,6 +133,7 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
 
   private void getDataFinish() {
     new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 2000);
+    //mSwipeRefreshLayout.setRefreshing(false);
   }
 
   private void fillData(List<Girl> girls) {
@@ -153,30 +144,11 @@ public class GirlPictureFragment extends Fragment implements GirlPictureAdapter.
     Snackbar.make(mRecyclerGirl, R.string.empty_data_of_girls, Snackbar.LENGTH_SHORT).show();
   }
 
-  private void setupSwipeRefreshLayout() {
-    mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimaryDark);
-    mSwipeRefreshLayout.setOnRefreshListener(() -> {
-      if (prepareRefresh()) {
-        onRefreshStarted();
-      } else {
-        hideRefresh();
-      }
-    });
-  }
-
-  private void hideRefresh() {
-    mSwipeRefreshLayout.postDelayed(() -> {
-      if (mSwipeRefreshLayout != null) {
-        mSwipeRefreshLayout.setRefreshing(false);
-      }
-    }, 1000);
-  }
-
-  private void onRefreshStarted() {
+  @Override protected void onRefreshStarted() {
     getGirlsData();
   }
 
-  private boolean prepareRefresh() {
+  @Override protected boolean prepareRefresh() {
     if (shouldRefillGirls()) {
       resetCurrentPage();
       if (!mSwipeRefreshLayout.isRefreshing()) {

@@ -31,16 +31,8 @@ public class MenuItem {
     return fragment;
   }
 
-  public void setFragment(Class<? extends Fragment> fragment) {
-    this.fragment = fragment;
-  }
-
   public FragmentType getType() {
     return type;
-  }
-
-  public void setType(FragmentType type) {
-    this.type = type;
   }
 
   public MenuItem() {
