@@ -18,7 +18,6 @@ import drrino.com.getgankio.ui.activity.GirlPictureActivity;
 import drrino.com.getgankio.ui.adapter.GirlPictureAdapter;
 import drrino.com.getgankio.ui.util.DateUtils;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 
@@ -47,13 +46,12 @@ public class GirlPictureFragment extends BaseSwipeFragment
 
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-
-    initRecyclerView();
-
+    new Handler().postDelayed(this::showRefresh, 1000);
+    setupRecyclerView();
     getGirlsData();
   }
 
-  private void initRecyclerView() {
+  private void setupRecyclerView() {
     StaggeredGridLayoutManager staggeredGridLayoutManager =
         new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
     mRecyclerGirl.setLayoutManager(staggeredGridLayoutManager);
@@ -91,7 +89,7 @@ public class GirlPictureFragment extends BaseSwipeFragment
             appendMoreDataToView(girls);
             mCurrentPage++;
           }
-          getDataFinish();
+          hideRefresh();
         });
   }
 
@@ -127,13 +125,8 @@ public class GirlPictureFragment extends BaseSwipeFragment
             fillData(girls);
             mCurrentPage++;
           }
-          getDataFinish();
+          hideRefresh();
         });
-  }
-
-  private void getDataFinish() {
-    new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 2000);
-    //mSwipeRefreshLayout.setRefreshing(false);
   }
 
   private void fillData(List<Girl> girls) {

@@ -15,12 +15,13 @@ import drrino.com.getgankio.R;
 import drrino.com.getgankio.model.MenuItem;
 import drrino.com.getgankio.ui.view.IMainView;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 16/03/03.
  */
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuHolder> {
-  public ArrayList<MenuItem> menuItems;
+  public List<MenuItem> menuItems;
   private IMainView mainView;
   private MenuItem.FragmentType currentFragment;
 

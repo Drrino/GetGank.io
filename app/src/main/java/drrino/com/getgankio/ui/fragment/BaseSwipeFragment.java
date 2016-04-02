@@ -20,6 +20,11 @@ public abstract class BaseSwipeFragment extends Fragment {
 
   protected abstract int getLayoutId();
 
+  @Override public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setHasOptionsMenu(true);
+  }
+
   @Nullable @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
       @Nullable Bundle savedInstanceState) {
@@ -31,11 +36,7 @@ public abstract class BaseSwipeFragment extends Fragment {
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
     trySetUpSwipeLayout();
-    new Handler().postDelayed(this::showRefresh, 1000);
-  }
 
-  private void showRefresh() {
-    mSwipeRefreshLayout.setRefreshing(true);
   }
 
   void trySetUpSwipeLayout() {
@@ -49,12 +50,12 @@ public abstract class BaseSwipeFragment extends Fragment {
     });
   }
 
-  private void hideRefresh() {
+  protected void hideRefresh() {
     mSwipeRefreshLayout.postDelayed(() -> {
       if (mSwipeRefreshLayout != null) {
         mSwipeRefreshLayout.setRefreshing(false);
       }
-    }, 1000);
+    }, 2000);
   }
 
   protected abstract void onRefreshStarted();

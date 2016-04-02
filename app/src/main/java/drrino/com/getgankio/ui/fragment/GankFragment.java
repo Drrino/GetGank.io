@@ -22,11 +22,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 
 /**
  * Created by Administrator on 16/03/03.
@@ -51,7 +48,7 @@ public class GankFragment extends BaseSwipeFragment implements GankListAdapter.I
 
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-
+    new Handler().postDelayed(this::showRefresh, 1000);
     setupRecyclerView();
     getData();
   }
@@ -87,14 +84,9 @@ public class GankFragment extends BaseSwipeFragment implements GankListAdapter.I
               mCountOfGetMoreDataEmpty = 0;
               fillData(ganks);
             }
-            getDataFinish();
+            hideRefresh();
           }
         });
-  }
-
-  private void getDataFinish() {
-    new Handler().postDelayed(() -> mSwipeRefreshLayout.setRefreshing(false), 2000);
-    //mSwipeRefreshLayout.setRefreshing(false);
   }
 
   private void fillData(List<Gank> data) {
@@ -168,7 +160,7 @@ public class GankFragment extends BaseSwipeFragment implements GankListAdapter.I
               mCountOfGetMoreDataEmpty = 0;
               appendMoreDataToView(ganks);
             }
-            getDataFinish();
+            hideRefresh();
           }
         });
   }
