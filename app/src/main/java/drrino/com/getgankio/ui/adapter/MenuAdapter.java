@@ -13,6 +13,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import drrino.com.getgankio.R;
 import drrino.com.getgankio.model.MenuItem;
+import drrino.com.getgankio.ui.activity.BaseMainActivity;
 import drrino.com.getgankio.ui.view.IMainView;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,15 +48,15 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuHolder> {
     holder.tv_title.setText(menuItem.getTitle());
     holder.img_menu.setImageResource(menuItem.getResourceId());
     holder.rl_container.setOnClickListener(v -> {
-      try {
-        if (currentFragment != menuItem.getType()) {
-          Fragment fragment =
-              (Fragment) Class.forName(menuItem.getFragment().getName()).newInstance();
-          mainView.replaceFragment(R.id.frame_container, fragment);
-          currentFragment = menuItem.getType();
+      if (currentFragment != menuItem.getType()) {
+        Fragment fragment = null;
+        try {
+          fragment = (Fragment) Class.forName(menuItem.getFragment().getName()).newInstance();
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
+          e.printStackTrace();
         }
-      } catch (Exception e) {
-        e.printStackTrace();
+        mainView.replaceFragment(R.id.frame_container, fragment);
+        currentFragment = menuItem.getType();
       }
       mainView.closeDrawer();
     });

@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import drrino.com.getgankio.R;
 import drrino.com.getgankio.core.GankApi;
 import drrino.com.getgankio.core.GankFactory;
@@ -41,12 +40,12 @@ public class GirlPictureFragment extends BaseSwipeFragment
   private static final GankApi mGankApi = GankFactory.getGankApiInstance();
 
   @Override protected int getLayoutId() {
-    return R.layout.list_girl_picture;
+    return R.layout.fragment_girls;
   }
 
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-    new Handler().postDelayed(this::showRefresh, 1000);
+    new Handler().postDelayed(this::showRefresh, 500);
     setupRecyclerView();
     getGirlsData();
   }
@@ -144,9 +143,6 @@ public class GirlPictureFragment extends BaseSwipeFragment
   @Override protected boolean prepareRefresh() {
     if (shouldRefillGirls()) {
       resetCurrentPage();
-      if (!mSwipeRefreshLayout.isRefreshing()) {
-        showRefresh();
-      }
       return true;
     } else {
       return false;
@@ -163,11 +159,6 @@ public class GirlPictureFragment extends BaseSwipeFragment
 
   private void showRefresh() {
     mSwipeRefreshLayout.setRefreshing(true);
-  }
-
-  @Override public void onDestroyView() {
-    super.onDestroyView();
-    ButterKnife.unbind(this);
   }
 
   @Override public void onClickPhoto(int position, View view, View textView) {

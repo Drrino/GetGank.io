@@ -9,10 +9,14 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       >
+
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_gank"
+        android:id="@+id/recycler_girl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dp_6"
+        android:paddingRight="@dimen/dp_6"
         />
+
   </android.support.v4.widget.SwipeRefreshLayout>
 </FrameLayout>

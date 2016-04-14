@@ -71,9 +71,8 @@ public class GirlPictureAdapter extends RecyclerView.Adapter<GirlPictureAdapter.
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(mContext).inflate(R.layout.item_girl_picture, null);
-    ViewHolder holder = new ViewHolder(view);
-    return holder;
+    View view = LayoutInflater.from(mContext).inflate(R.layout.item_girl_picture, parent, false);
+    return new ViewHolder(view);
   }
 
   @Override public void onBindViewHolder(ViewHolder holder, int position) {
@@ -84,6 +83,7 @@ public class GirlPictureAdapter extends RecyclerView.Adapter<GirlPictureAdapter.
         .centerCrop()
         .into(holder.mIvGirlPicture)
         .getSize((width, height) -> holder.mIvGirlPicture.setColorFilter(mColorFilter));
+
     holder.mTvDate.setText(DateUtils.toDate(entity.publishedAt));
     if (mIClickItem != null) {
       holder.mIvGirlPicture.setOnClickListener(

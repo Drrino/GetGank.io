@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import drrino.com.getgankio.R;
 import drrino.com.getgankio.core.GankApi;
 import drrino.com.getgankio.core.GankFactory;
@@ -192,11 +191,6 @@ public class GankFragment extends BaseSwipeFragment implements GankListAdapter.I
 
   private boolean shouldRefillData() {
     return !hasLoadMoreData;
-  }
-
-  @Override public void onDestroyView() {
-    super.onDestroyView();
-    ButterKnife.unbind(this);
   }
 
   @Override public void onClickGankItemGirl(Gank gank, View viewImage, View viewText) {

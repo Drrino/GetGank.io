@@ -17,6 +17,9 @@ public interface GankApi {
   @GET("/data/福利/{pagesize}/{page}") Observable<GirlData> getGirlData(
       @Path("pagesize") int pagesize, @Path("page") int page);
 
+  @GET("/data/Android/{pagesize}/{page}") Observable<GirlData> getAndroidData(
+      @Path("pagesize") int pagesize, @Path("page") int page);
+
   @GET("/data/休息视频/{pagesize}/{page}") Observable<休息视频Data> get休息视频Data(
       @Path("pagesize") int pagesize, @Path("page") int page);
 }

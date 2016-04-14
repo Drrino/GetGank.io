@@ -50,8 +50,6 @@ public class MenuFragment extends Fragment {
         GirlPictureFragment.class));
     mAdapter.menuItems.add(new MenuItem("Android", R.mipmap.android, MenuItem.FragmentType.Android,
         AndroidFragment.class));
-    mAdapter.menuItems.add(
-        new MenuItem("IOS", R.mipmap.ios, MenuItem.FragmentType.IOS, GankFragment.class));
   }
 
   @Override public void onDestroyView() {

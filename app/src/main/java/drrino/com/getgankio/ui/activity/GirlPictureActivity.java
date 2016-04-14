@@ -60,8 +60,8 @@ public class GirlPictureActivity extends BaseActivity {
 
     ActivityOptionsCompat activityOptions =
         ActivityOptionsCompat.makeSceneTransitionAnimation(context,
-            new Pair<View, String>(viewImage, VIEW_NAME_HEADER_IMAGE),
-            new Pair<View, String>(viewText, VIEW_NAME_HEADER_TITLE));
+            new Pair<>(viewImage, VIEW_NAME_HEADER_IMAGE),
+            new Pair<>(viewText, VIEW_NAME_HEADER_TITLE));
     ActivityCompat.startActivity(context, intent, activityOptions.toBundle());
   }
 
@@ -74,7 +74,7 @@ public class GirlPictureActivity extends BaseActivity {
   }
 
   private void loadFullSizeImage() {
-    Picasso.with(this).load(mUrl).noFade().noPlaceholder().into(mIvGirlDetail);
+    Picasso.with(this).load(mUrl).noFade().fit().into(mIvGirlDetail);
   }
 
   private void loadThumbnail() {

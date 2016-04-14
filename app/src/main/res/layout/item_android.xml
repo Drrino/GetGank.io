@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp_3"
+    android:background="@color/white"
+    >
+  <LinearLayout
+      android:id="@+id/gank_android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      >
+    <TextView
+        android:id="@+id/gank_title"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="@color/title"
+        android:textSize="@dimen/dp_16"
+        />
+    <TextView
+        android:id="@+id/gank_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_2"
+        android:text="2016-02-26"
+        />
+  </LinearLayout>
+
+</android.support.v7.widget.CardView>

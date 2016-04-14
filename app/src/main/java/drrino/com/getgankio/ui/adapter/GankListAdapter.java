@@ -65,7 +65,7 @@ public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.ViewHo
   private enum EItemType {
     ITEM_TYPE_GIRL,
     ITEM_TYPE_NORMAL,
-    ITEM_TYPE_CATEGOTY;
+    ITEM_TYPE_CATEGOTY
   }
 
   @Override public int getItemViewType(int position) {
@@ -127,13 +127,13 @@ public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.ViewHo
   @Override public ViewHolderItem onCreateViewHolder(ViewGroup parent, int viewType) {
     View view;
     if (viewType == EItemType.ITEM_TYPE_GIRL.ordinal()) {
-      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_girl, null);
+      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_girl, parent, false);
       return new ViewHolderItemGirl(view);
     } else if (viewType == EItemType.ITEM_TYPE_CATEGOTY.ordinal()) {
-      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_category, null);
+      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_category, parent, false);
       return new ViewHolderItemCategory(view);
     } else {
-      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_normal, null);
+      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_normal, parent, false);
       return new ViewHolderItemNormal(view);
     }
   }
