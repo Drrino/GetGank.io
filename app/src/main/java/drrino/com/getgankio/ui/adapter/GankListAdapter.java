@@ -127,13 +127,13 @@ public class GankListAdapter extends RecyclerView.Adapter<GankListAdapter.ViewHo
   @Override public ViewHolderItem onCreateViewHolder(ViewGroup parent, int viewType) {
     View view;
     if (viewType == EItemType.ITEM_TYPE_GIRL.ordinal()) {
-      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_girl, parent, false);
+      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_girl, null);
       return new ViewHolderItemGirl(view);
     } else if (viewType == EItemType.ITEM_TYPE_CATEGOTY.ordinal()) {
-      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_category, parent, false);
+      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_category, null);
       return new ViewHolderItemCategory(view);
     } else {
-      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_normal, parent, false);
+      view = LayoutInflater.from(mContext).inflate(R.layout.gank_item_normal, null);
       return new ViewHolderItemNormal(view);
     }
   }

@@ -71,7 +71,7 @@ public class GirlPictureAdapter extends RecyclerView.Adapter<GirlPictureAdapter.
   }
 
   @Override public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(mContext).inflate(R.layout.item_girl_picture, parent, false);
+    View view = LayoutInflater.from(mContext).inflate(R.layout.item_girl_picture, null);
     return new ViewHolder(view);
   }
 

@@ -42,37 +42,29 @@ public class GankAndroidAdapter extends RecyclerView.Adapter<GankAndroidAdapter.
    */
   public void updateWithClear(List<Gank> data) {
     mAndroidList.clear();
-    update(data);
+    mAndroidList.addAll(data);
+    notifyDataSetChanged();
   }
 
   /**
    * add data append to history data
    */
   public void update(List<Gank> data) {
-    formatGankData(data);
+    mAndroidList.addAll(data);
     notifyDataSetChanged();
   }
 
-  /**
-   * filter list and Insert category entity into list
-   */
-  private void formatGankData(List<Gank> data) {
-    for (int i = 0; i < data.size(); i++) {
-      Gank gankData = data.get(i);
-      if (gankData.isAndroid()) {
-        mAndroidList.add(gankData);
-      }
-    }
-  }
-
   @Override public ViewHolderItem onCreateViewHolder(ViewGroup parent, int viewType) {
-    return new ViewHolderItem(
-        LayoutInflater.from(mContext).inflate(R.layout.item_android, parent, false));
+    View view = LayoutInflater.from(mContext).inflate(R.layout.item_android, null);
+    return new ViewHolderItem(view);
   }
 
   @Override public void onBindViewHolder(ViewHolderItem holder, int position) {
     Gank gank = mAndroidList.get(position);
-    holder.mGankTitle.setText(StringStyleUtils.getGankInfoSequence(mContext, gank));
+    String title = "* " + gank.desc;
+    holder.mGankTitle.setText(title);
+    holder.mGankAuthor.setText(
+        StringStyleUtils.format(mContext, "(via." + gank.who + ")", R.style.ViaTextAppearance));
     holder.mGankDate.setText(DateUtils.toDate(gank.publishedAt));
 
     holder.mGankAndroid.setOnClickListener(v -> mIClickItem.onClickGankItemAndroid(gank, v));
@@ -85,6 +77,7 @@ public class GankAndroidAdapter extends RecyclerView.Adapter<GankAndroidAdapter.
   public static class ViewHolderItem extends RecyclerView.ViewHolder {
     @Bind(R.id.gank_android) LinearLayout mGankAndroid;
     @Bind(R.id.gank_title) TextView mGankTitle;
+    @Bind(R.id.gank_author) TextView mGankAuthor;
     @Bind(R.id.gank_date) TextView mGankDate;
 
     public ViewHolderItem(View itemView) {

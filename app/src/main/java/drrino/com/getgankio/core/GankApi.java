@@ -1,5 +1,6 @@
 package drrino.com.getgankio.core;
 
+import drrino.com.getgankio.data.BlogData;
 import drrino.com.getgankio.data.GankData;
 import drrino.com.getgankio.data.GirlData;
 import drrino.com.getgankio.data.休息视频Data;
@@ -17,7 +18,7 @@ public interface GankApi {
   @GET("/data/福利/{pagesize}/{page}") Observable<GirlData> getGirlData(
       @Path("pagesize") int pagesize, @Path("page") int page);
 
-  @GET("/data/Android/{pagesize}/{page}") Observable<GirlData> getAndroidData(
+  @GET("/data/Android/{pagesize}/{page}") Observable<BlogData> getAndroidData(
       @Path("pagesize") int pagesize, @Path("page") int page);
 
   @GET("/data/休息视频/{pagesize}/{page}") Observable<休息视频Data> get休息视频Data(
