@@ -19,9 +19,9 @@ import java.util.List;
 /**
  * Created by Administrator on 16/03/03.
  */
-public class GankAndroidAdapter extends RecyclerView.Adapter<GankAndroidAdapter.ViewHolderItem> {
+public class GankArticleAdapter extends RecyclerView.Adapter<GankArticleAdapter.ViewHolderItem> {
   private Context mContext;
-  private List<Gank> mAndroidList;
+  private List<Gank> mArticleList;
   private static IClickItem mIClickItem;
 
   public void setIClickItem(IClickItem IClickItem) {
@@ -32,17 +32,17 @@ public class GankAndroidAdapter extends RecyclerView.Adapter<GankAndroidAdapter.
     void onClickGankItemAndroid(Gank gank, View view);
   }
 
-  public GankAndroidAdapter(Context context) {
+  public GankArticleAdapter(Context context) {
     mContext = context;
-    mAndroidList = new ArrayList<>();
+    mArticleList = new ArrayList<>();
   }
 
   /**
    * before add data,remove history data
    */
   public void updateWithClear(List<Gank> data) {
-    mAndroidList.clear();
-    mAndroidList.addAll(data);
+    mArticleList.clear();
+    mArticleList.addAll(data);
     notifyDataSetChanged();
   }
 
@@ -50,32 +50,32 @@ public class GankAndroidAdapter extends RecyclerView.Adapter<GankAndroidAdapter.
    * add data append to history data
    */
   public void update(List<Gank> data) {
-    mAndroidList.addAll(data);
+    mArticleList.addAll(data);
     notifyDataSetChanged();
   }
 
   @Override public ViewHolderItem onCreateViewHolder(ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(mContext).inflate(R.layout.item_android, null);
+    View view = LayoutInflater.from(mContext).inflate(R.layout.item_article, null);
     return new ViewHolderItem(view);
   }
 
   @Override public void onBindViewHolder(ViewHolderItem holder, int position) {
-    Gank gank = mAndroidList.get(position);
+    Gank gank = mArticleList.get(position);
     String title = "* " + gank.desc;
     holder.mGankTitle.setText(title);
     holder.mGankAuthor.setText(
         StringStyleUtils.format(mContext, "(via." + gank.who + ")", R.style.ViaTextAppearance));
     holder.mGankDate.setText(DateUtils.toDate(gank.publishedAt));
 
-    holder.mGankAndroid.setOnClickListener(v -> mIClickItem.onClickGankItemAndroid(gank, v));
+    holder.mGankArticle.setOnClickListener(v -> mIClickItem.onClickGankItemAndroid(gank, v));
   }
 
   @Override public int getItemCount() {
-    return mAndroidList.size();
+    return mArticleList.size();
   }
 
   public static class ViewHolderItem extends RecyclerView.ViewHolder {
-    @Bind(R.id.gank_android) LinearLayout mGankAndroid;
+    @Bind(R.id.gank_article) LinearLayout mGankArticle;
     @Bind(R.id.gank_title) TextView mGankTitle;
     @Bind(R.id.gank_author) TextView mGankAuthor;
     @Bind(R.id.gank_date) TextView mGankDate;

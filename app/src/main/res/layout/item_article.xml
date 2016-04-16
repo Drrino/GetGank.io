@@ -5,7 +5,7 @@
     android:layout_margin="@dimen/dp_6"
     >
   <LinearLayout
-      android:id="@+id/gank_android"
+      android:id="@+id/gank_article"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:padding="10dp"

@@ -9,6 +9,7 @@
 
   <string name="empty_data_of_girls">妹子还没有准备好</string>
   <string name="empty_data_of_android">Android精选还没有准备好</string>
+  <string name="empty_data_of_ios">IOS精选还没有准备好</string>
 
   <string name="no_more_girls">妹子见底了，没有更多啦。</string>
   <string name="action_to_top">返回顶部</string>

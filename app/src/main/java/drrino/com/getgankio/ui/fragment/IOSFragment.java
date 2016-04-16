@@ -21,7 +21,7 @@ import rx.android.schedulers.AndroidSchedulers;
 /**
  * Created by Coder on 16/3/26.
  */
-public class AndroidFragment extends BaseSwipeFragment implements GankArticleAdapter.IClickItem {
+public class IOSFragment extends BaseSwipeFragment implements GankArticleAdapter.IClickItem {
   @Bind(R.id.rv_gank) RecyclerView mRecyclerView;
 
   private GankArticleAdapter mAdapter;
@@ -35,7 +35,7 @@ public class AndroidFragment extends BaseSwipeFragment implements GankArticleAda
     super.onViewCreated(view, savedInstanceState);
     new Handler().postDelayed(this::showRefresh, 500);
     setupRecyclerView();
-    getAndroidData();
+    getIOSData();
   }
 
   private void setupRecyclerView() {
@@ -58,21 +58,21 @@ public class AndroidFragment extends BaseSwipeFragment implements GankArticleAda
     });
   }
 
-  private void getAndroidData() {
-    mGankApi.getAndroidData(PAGE_SIZE, mCurrentPage)
-        .map(androidData -> androidData.results)
+  private void getIOSData() {
+    mGankApi.getIOSData(PAGE_SIZE, mCurrentPage)
+        .map(IOSData -> IOSData.results)
         .flatMap(Observable::from)
-        .toSortedList((androidData1, androidData2) -> androidData2.publishedAt.compareTo(
-            androidData1.publishedAt))
+        .toSortedList((IOSData1, IOSData2) -> IOSData2.publishedAt.compareTo(
+            IOSData1.publishedAt))
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(androidData -> {
-          if (androidData.isEmpty()) {
+        .subscribe(IOSData -> {
+          if (IOSData.isEmpty()) {
             showEmptyView();
-          } else if (androidData.size() < PAGE_SIZE) {
-            reloadData(androidData);
+          } else if (IOSData.size() < PAGE_SIZE) {
+            reloadData(IOSData);
             hasNoMoreData();
-          } else if (androidData.size() == PAGE_SIZE) {
-            reloadData(androidData);
+          } else if (IOSData.size() == PAGE_SIZE) {
+            reloadData(IOSData);
             mCurrentPage++;
           }
           hideRefresh();
@@ -84,20 +84,20 @@ public class AndroidFragment extends BaseSwipeFragment implements GankArticleAda
   }
 
   private void getDataMore() {
-    mGankApi.getAndroidData(PAGE_SIZE, mCurrentPage)
-        .map(androidData -> androidData.results)
+    mGankApi.getIOSData(PAGE_SIZE, mCurrentPage)
+        .map(IOSData -> IOSData.results)
         .flatMap(Observable::from)
-        .toSortedList((androidData1, androidData2) -> androidData2.publishedAt.compareTo(
-            androidData1.publishedAt))
+        .toSortedList((IOSData1, IOSData2) -> IOSData2.publishedAt.compareTo(
+            IOSData1.publishedAt))
         .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(androidData -> {
-          if (androidData.isEmpty()) {
+        .subscribe(IOSData -> {
+          if (IOSData.isEmpty()) {
             hasNoMoreData();
-          } else if (androidData.size() < PAGE_SIZE) {
-            appendMoreDataToView(androidData);
+          } else if (IOSData.size() < PAGE_SIZE) {
+            appendMoreDataToView(IOSData);
             hasNoMoreData();
-          } else if (androidData.size() == PAGE_SIZE) {
-            appendMoreDataToView(androidData);
+          } else if (IOSData.size() == PAGE_SIZE) {
+            appendMoreDataToView(IOSData);
             mCurrentPage++;
           }
           hideRefresh();
@@ -108,8 +108,8 @@ public class AndroidFragment extends BaseSwipeFragment implements GankArticleAda
     Snackbar.make(mRecyclerView, R.string.empty_data_of_android, Snackbar.LENGTH_SHORT).show();
   }
 
-  private void appendMoreDataToView(List<Gank> androidData) {
-    mAdapter.update(androidData);
+  private void appendMoreDataToView(List<Gank> IOSData) {
+    mAdapter.update(IOSData);
   }
 
   private void hasNoMoreData() {
@@ -130,7 +130,7 @@ public class AndroidFragment extends BaseSwipeFragment implements GankArticleAda
   }
 
   @Override protected void onRefreshStarted() {
-    getAndroidData();
+    getIOSData();
   }
 
   private boolean shouldReloadData() {
