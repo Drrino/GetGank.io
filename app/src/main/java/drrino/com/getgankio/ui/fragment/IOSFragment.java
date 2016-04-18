@@ -27,7 +27,7 @@ public class IOSFragment extends BaseSwipeFragment implements GankArticleAdapter
   private GankArticleAdapter mAdapter;
   private boolean mHasMoreData = true;
   private int mCurrentPage = 1;
-  private static final int PAGE_SIZE = 10;
+  private static final int PAGE_SIZE = 15;
 
   private static final GankApi mGankApi = GankFactory.getGankApiInstance();
 

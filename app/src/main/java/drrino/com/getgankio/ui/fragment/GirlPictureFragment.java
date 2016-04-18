@@ -26,7 +26,7 @@ import rx.android.schedulers.AndroidSchedulers;
 public class GirlPictureFragment extends BaseSwipeFragment
     implements GirlPictureAdapter.IClickItem {
 
-  @Bind(R.id.recycler_girl) RecyclerView mRecyclerGirl;
+  @Bind(R.id.rv_gank) RecyclerView mRecyclerView;
 
   private GirlPictureAdapter mAdapter;
   private boolean mHasMoreData = true;
@@ -40,7 +40,7 @@ public class GirlPictureFragment extends BaseSwipeFragment
   private static final GankApi mGankApi = GankFactory.getGankApiInstance();
 
   @Override protected int getLayoutId() {
-    return R.layout.fragment_girls;
+    return R.layout.fragment_gank;
   }
 
   @Override public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -53,12 +53,12 @@ public class GirlPictureFragment extends BaseSwipeFragment
   private void setupRecyclerView() {
     StaggeredGridLayoutManager staggeredGridLayoutManager =
         new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-    mRecyclerGirl.setLayoutManager(staggeredGridLayoutManager);
+    mRecyclerView.setLayoutManager(staggeredGridLayoutManager);
     mAdapter = new GirlPictureAdapter(getActivity());
     mAdapter.setIClickItem(this);
-    mRecyclerGirl.setAdapter(mAdapter);
+    mRecyclerView.setAdapter(mAdapter);
 
-    mRecyclerGirl.addOnScrollListener(new RecyclerView.OnScrollListener() {
+    mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
       @Override public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
         boolean isBottom =
@@ -98,9 +98,9 @@ public class GirlPictureFragment extends BaseSwipeFragment
 
   public void hasNoMoreData() {
     mHasMoreData = false;
-    Snackbar.make(mRecyclerGirl, R.string.no_more_girls, Snackbar.LENGTH_SHORT)
+    Snackbar.make(mRecyclerView, R.string.no_more_girls, Snackbar.LENGTH_SHORT)
         .setAction(R.string.action_to_top, v -> {
-          (mRecyclerGirl.getLayoutManager()).smoothScrollToPosition(mRecyclerGirl, null, 0);
+          (mRecyclerView.getLayoutManager()).smoothScrollToPosition(mRecyclerView, null, 0);
         })
         .show();
   }
@@ -133,7 +133,7 @@ public class GirlPictureFragment extends BaseSwipeFragment
   }
 
   private void showEmptyView() {
-    Snackbar.make(mRecyclerGirl, R.string.empty_data_of_girls, Snackbar.LENGTH_SHORT).show();
+    Snackbar.make(mRecyclerView, R.string.empty_data_of_girls, Snackbar.LENGTH_SHORT).show();
   }
 
   @Override protected void onRefreshStarted() {

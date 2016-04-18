@@ -10,8 +10,8 @@
   <dimen name="dp_10">10dp</dimen>
   <dimen name="dp_16">16dp</dimen>
 
-  <dimen name="text_size_gank_title">14sp</dimen>
-  <dimen name="text_size_gank_category">16sp</dimen>
-  <dimen name="text_size_gank_time_small">18sp</dimen>
-  <dimen name="text_size_gank_time">24sp</dimen>
+  <dimen name="sp_14">14sp</dimen>
+  <dimen name="sp_16">16sp</dimen>
+  <dimen name="sp_18">18sp</dimen>
+  <dimen name="sp_24">24sp</dimen>
 </resources>
