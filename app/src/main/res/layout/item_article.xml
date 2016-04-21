@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-  <android.support.v7.widget.CardView
-      xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
-      android:layout_margin="@dimen/dp_2"
-      app:cardCornerRadius="@dimen/dp_2"
-      app:cardElevation="@dimen/dp_3"
+    android:layout_margin="@dimen/dp_2"
+    app:cardCornerRadius="@dimen/dp_2"
+    app:cardElevation="@dimen/dp_3"
+    >
+  <LinearLayout
+      android:id="@+id/gank_article"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:padding="10dp"
+      android:orientation="vertical"
       >
-    <LinearLayout
-        android:id="@+id/gank_article"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         >
-      <RelativeLayout
-          android:layout_width="match_parent"
+      <TextView
+          android:id="@+id/gank_title"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          >
-        <TextView
-            android:id="@+id/gank_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="2"
-            android:textColor="@color/title"
-            android:textSize="@dimen/sp_14"
-            />
-      </RelativeLayout>
+          android:maxLines="2"
+          android:textColor="@color/title"
+          android:textSize="@dimen/sp_14"
+          />
+    </RelativeLayout>
 
-      <RelativeLayout
-          android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_2"
+        >
+      <TextView
+          android:id="@+id/gank_author"
+          android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_marginTop="@dimen/dp_2"
-          >
-        <TextView
-            android:id="@+id/gank_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            />
-        <TextView
-            android:id="@+id/gank_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            />
-      </RelativeLayout>
-    </LinearLayout>
-  </android.support.v7.widget.CardView>
+          android:layout_alignParentStart="true"
+          />
+      <TextView
+          android:id="@+id/gank_date"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          />
+    </RelativeLayout>
+  </LinearLayout>
+</android.support.v7.widget.CardView>

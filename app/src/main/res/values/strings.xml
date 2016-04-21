@@ -18,4 +18,15 @@
   <string name="action_open_url">从浏览器打开链接</string>
   <string name="toast_copy_done">复制成功</string>
   <string name="toast_open_fail">打开链接失败</string>
+  <string name="about_title">每日提供技术干货和妹子图</string>
+  <string name="about_api">API来源干货集中营 http://gank.io</string>
+  <string name="about_project">项目地址 https://github.com/Drrino/GetGank.io</string>
+  <string name="introduce_and_help">介绍与帮助</string>
+  <string name="introduce">干货集中营是一个技术干货分享平台。工作日每天会更新一张妹子图、一个小视频和一些精选干货信息，包括Android、iOS、App等技术干货。\n\n数据内容全部来自代码家的干货集中营http://gank.io\n\n我的GitHub:https://github.com/Drrino</string>
+  <string name="open_source_libraries">使用的开源库</string>
+  <string name="open_source_libraries_list">com.android.support:appcompat-v7:23.3.0\ncom.android.support:design:23.3.0\ncom.android.support:cardview-v7:23.3.0\ncom.android.support:recyclerview-v7:23.3.0\ncom.jakewharton:butterknife:7.0.1\nio.reactivex:rxandroid:1.1.0\nio.reactivex:rxjava:1.1.0\ncom.squareup.okhttp:okhttp:2.5.0\ncom.squareup.picasso:picasso:2.5.2\ncom.squareup.retrofit:retrofit:1.9.0\ncom.commit451:PhotoView:1.2.4\ncom.github.bumptech.glide:glide:3.7.0</string>
+  <string name="thanks">特别鸣谢</string>
+  <string name="thank_daimajia"><a href='https://github.com/daimajia' style='text-decoration:none'> @代码家</a></string>
+  <string name="thank_drakeet"><a href='https://github.com/drakeet' style='text-decoration:none'> @drakeet</a></string>
+  <string name="thank_maoruibin"><a href='https://github.com/maoruibin' style='text-decoration:none'> @maoruibin</a></string>
 </resources>
