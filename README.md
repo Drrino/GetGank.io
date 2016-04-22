@@ -8,15 +8,15 @@ GetGank.io是一个技术干货分享平台App，在工作日会每天更新一�
 
 ###ScreenShots
 
- ![screenshot](/screenshots/s1.jpg)   ![screenshot](/screenshots/s2.jpg)   ![screenshot](/screenshots/s3.jpg)
+ ![screenshot](/screenshots/s1.png)   ![screenshot](/screenshots/s2.png)   ![screenshot](/screenshots/s3.png)
 
- ![screenshot](/screenshots/s4.jpg)   ![screenshot](/screenshots/s5.jpg)   ![screenshot](/screenshots/s6.jpg)
+ ![screenshot](/screenshots/s4.png)   ![screenshot](/screenshots/s5.png)   ![screenshot](/screenshots/s6.png)
 
- ###UI设计
+ ### UI设计
 
  整个项目UI和获取信息思路借鉴于@咕咚[GankDaily](https://github.com/maoruibin/GankDaily)。但在原基础上做了修改。
 
- ###特别鸣谢
+ ### 特别鸣谢
 
  [代码家](https://github.com/daimajia)
  [咕咚](https://github.com/maoruibin)
