@@ -8,36 +8,36 @@ GetGank.io是一个技术干货分享平台App，在工作日会每天更新一�
 
 ###ScreenShots
 
- <img src="/screenshots/s1.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s2.png" alt="screenshot" title="screenshot" width="270" height="486" /><img src="/screenshots/s3.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/s1.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s2.png" alt="screenshot" title="screenshot" width="270" height="486" /><img src="/screenshots/s3.png" alt="screenshot" title="screenshot" width="270" height="486" />
 
- <img src="/screenshots/s4.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s5.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s6.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/s4.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s5.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s6.png" alt="screenshot" title="screenshot" width="270" height="486" />
 
- ### UI设计
+### UI设计
 
- 整个项目UI和获取信息思路借鉴于@咕咚[GankDaily](https://github.com/maoruibin/GankDaily)。但在原基础上做了修改。
+整个项目UI和获取信息思路借鉴于@咕咚[GankDaily](https://github.com/maoruibin/GankDaily)。但在原基础上做了修改。
 
- ### 特别鸣谢
+### 特别鸣谢
 
- [代码家](https://github.com/daimajia)
- [咕咚](https://github.com/maoruibin)
- [drakeet](https://github.com/drakeet)
+[代码家](https://github.com/daimajia)
+[咕咚](https://github.com/maoruibin)
+[drakeet](https://github.com/drakeet)
 
- ### License
+### License
 
-    /*
-     *       
-     * Copyright (C) 2015 GuDong <q592926752@gmail.com>
-     *
-     * Meizhi is free software: you can redistribute it and/or modify
-     * it under the terms of the GNU General Public License as published by
-     * the Free Software Foundation, either version 3 of the License, or
-     * (at your option) any later version.
-     *
-     * Meizhi is distributed in the hope that it will be useful,
-     * but WITHOUT ANY WARRANTY; without even the implied warranty of
-     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-     * GNU General Public License for more details.
-     *
-     * You should have received a copy of the GNU General Public License
-     * along with Meizhi.  If not, see <http://www.gnu.org/licenses/>.
-     */
+/*
+*       
+* Copyright (C) 2015 GuDong <q592926752@gmail.com>
+*
+* Meizhi is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* Meizhi is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with Meizhi.  If not, see <http://www.gnu.org/licenses/>.
+*/
