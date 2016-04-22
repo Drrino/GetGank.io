@@ -2,13 +2,13 @@
 
 <img src="/app/src/main/res/mipmap-hdpi/app_icon.png" width="200" height="200" />
 
-GetGank.io是一个技术干货分享平台App，在工作日会每天更新一张妹子图、一个小视频和一些精选干货信息，包含Android、iOS等技术干货
+GetGank.io是一个技术干货分享平台App，工作日内每天更新一张妹子图、一个小视频和一些精选干货文章。
 
-**所有的数据均来自代码家的干货集中营:http://gank.io
+**所有的数据均来自代码家的干货集中营:http://gank.io**
 
 ###ScreenShots
 
-<img src="/screenshots/s1.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s2.png" alt="screenshot" title="screenshot" width="270" height="486" /><img src="/screenshots/s3.png" alt="screenshot" title="screenshot" width="270" height="486" />
+<img src="/screenshots/s1.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s2.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s3.png" alt="screenshot" title="screenshot" width="270" height="486" />
 
 <img src="/screenshots/s4.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s5.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s6.png" alt="screenshot" title="screenshot" width="270" height="486" />
 
@@ -24,20 +24,20 @@ GetGank.io是一个技术干货分享平台App，在工作日会每天更新一�
 
 ### License
 
-/*
-*       
-* Copyright (C) 2015 GuDong <q592926752@gmail.com>
-*
-* Meizhi is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* Meizhi is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with Meizhi.  If not, see <http://www.gnu.org/licenses/>.
-*/
+   /*
+	*       
+	* Copyright (C) 2015 GuDong <q592926752@gmail.com>
+	*
+	* Meizhi is free software: you can redistribute it and/or modify
+	* it under the terms of the GNU General Public License as published by
+	* the Free Software Foundation, either version 3 of the License, or
+	* (at your option) any later version.
+	*
+	* Meizhi is distributed in the hope that it will be useful,
+	* but WITHOUT ANY WARRANTY; without even the implied warranty of
+	* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	* GNU General Public License for more details.
+	*
+	* You should have received a copy of the GNU General Public License
+	* along with Meizhi.  If not, see <http://www.gnu.org/licenses/>.
+	*/

@@ -29,7 +29,7 @@ public class GankArticleAdapter extends RecyclerView.Adapter<GankArticleAdapter.
   }
 
   public interface IClickItem {
-    void onClickGankItemAndroid(Gank gank, View view);
+    void onClickGankItem(Gank gank, View view);
   }
 
   public GankArticleAdapter(Context context) {
@@ -67,7 +67,7 @@ public class GankArticleAdapter extends RecyclerView.Adapter<GankArticleAdapter.
         StringStyleUtils.format(mContext, "(via." + gank.who + ")", R.style.ViaTextAppearance));
     holder.mGankDate.setText(DateUtils.toDate(gank.publishedAt));
 
-    holder.mGankArticle.setOnClickListener(v -> mIClickItem.onClickGankItemAndroid(gank, v));
+    holder.mGankArticle.setOnClickListener(v -> mIClickItem.onClickGankItem(gank, v));
   }
 
   @Override public int getItemCount() {
