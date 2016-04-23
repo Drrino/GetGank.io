@@ -65,11 +65,6 @@ public class MainActivity extends BaseMainActivity implements IMainView {
     if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
   }
 
-  @Override public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.menu_main, menu);
-    return true;
-  }
-
   @Override public boolean onOptionsItemSelected(MenuItem item) {
     if (mActionBarDrawerToggle.onOptionsItemSelected(item)) {
       return true;

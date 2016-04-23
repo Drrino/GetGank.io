@@ -14,7 +14,7 @@ GetGank.io是一个技术干货分享平台App，工作日内每天更新一张�
 
 ### UI设计
 
-整个项目UI和获取信息思路借鉴于@咕咚[GankDaily](https://github.com/maoruibin/GankDaily)。但在原基础上做了修改。
+整个项目UI设计思路借鉴于@咕咚[GankDaily](https://github.com/maoruibin/GankDaily)。真的非常喜欢他的设计，也在原项目基础上做了修改。
 
 ### 特别鸣谢
 
@@ -24,20 +24,20 @@ GetGank.io是一个技术干货分享平台App，工作日内每天更新一张�
 
 ### License
 
-   /*
-	*       
-	* Copyright (C) 2015 GuDong <q592926752@gmail.com>
-	*
-	* Meizhi is free software: you can redistribute it and/or modify
-	* it under the terms of the GNU General Public License as published by
-	* the Free Software Foundation, either version 3 of the License, or
-	* (at your option) any later version.
-	*
-	* Meizhi is distributed in the hope that it will be useful,
-	* but WITHOUT ANY WARRANTY; without even the implied warranty of
-	* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	* GNU General Public License for more details.
-	*
-	* You should have received a copy of the GNU General Public License
-	* along with Meizhi.  If not, see <http://www.gnu.org/licenses/>.
-	*/
+    /*
+	 *       
+	 * Copyright (C) 2015 GuDong <q592926752@gmail.com>
+	 *
+	 * Meizhi is free software: you can redistribute it and/or modify
+	 * it under the terms of the GNU General Public License as published by
+	 * the Free Software Foundation, either version 3 of the License, or
+	 * (at your option) any later version.
+	 *
+	 * Meizhi is distributed in the hope that it will be useful,
+	 * but WITHOUT ANY WARRANTY; without even the implied warranty of
+	 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	 * GNU General Public License for more details.
+	 *
+	 * You should have received a copy of the GNU General Public License
+	 * along with Meizhi.  If not, see <http://www.gnu.org/licenses/>.
+	 */
