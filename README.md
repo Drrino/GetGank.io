@@ -26,7 +26,7 @@ GetGank.io是一个技术干货分享平台App，工作日内每天更新一张�
 
     /*
 	 *       
-	 * Copyright (C) 2015 GuDong <q592926752@gmail.com>
+	 * Copyright (C) 2015 drrino <q592926752@gmail.com>
 	 *
 	 * Meizhi is free software: you can redistribute it and/or modify
 	 * it under the terms of the GNU General Public License as published by
