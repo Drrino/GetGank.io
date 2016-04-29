@@ -12,6 +12,9 @@ GetGank.io是一个技术干货分享平台App，工作日内每天更新一张�
 
 <img src="/screenshots/s4.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s5.png" alt="screenshot" title="screenshot" width="270" height="486" />   <img src="/screenshots/s6.png" alt="screenshot" title="screenshot" width="270" height="486" />
 
+### DownLoad
+http://fir.im/getgank
+
 ### UI设计
 
 整个项目UI设计思路借鉴于@咕咚[GankDaily](https://github.com/maoruibin/GankDaily)。真的非常喜欢他的设计，也在原项目基础上做了修改。

@@ -19,15 +19,7 @@ android {
 
   buildTypes {
     release {
-      // 不显示Log
-      buildConfigField "boolean", "LOG_DEBUG", "false"
-      //设置是否混淆
-      minifyEnabled true
-//      //设置压缩对齐
-//      zipAlignEnabled true
-      //移除无用的资源文件
-      shrinkResources true
-      //设置混淆配置文件
+      minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
